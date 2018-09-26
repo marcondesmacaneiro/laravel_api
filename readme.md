@@ -10,6 +10,7 @@
 #Acessando o phpMyAdmin
 - Abra a seguinte URL: http://localhost:41113
 - Use os dados de login: Servidor: mysql, Utilizador: root, Palavra-passe, root
+
 #Como para fazer o stop dos servidores
 - Dentro da pasta do projeto executar
 - Ctrl+C
