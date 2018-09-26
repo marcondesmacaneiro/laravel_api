@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'regiao'], function () {
+
+    Route::get('', 'RegiaoController@todasRegioes');
+
+    Route::get('{id}', 'RegiaoController@getRegiao');
+
+    Route::post('', 'RegiaoController@salvarRegiao');
+
+    Route::put('{id}', 'RegiaoController@atualizarRegiao');
+
+    Route::delete('{id}', 'RegiaoController@deletarRegiao');
+
+});

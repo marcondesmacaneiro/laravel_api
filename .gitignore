@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 /laravel/src/.env
 /laravel/src/.phpunit.result.cache
+/mysql/data
