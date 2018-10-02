@@ -31,3 +31,20 @@ Route::group(['prefix' => 'regiao'], function () {
     Route::delete('{id}', 'RegiaoController@deletarRegiao');
 
 });
+
+Route::group(["prefix" => "transportadora"], function() {
+    //Lista as transportadoras
+    Route::get('','TransportadoraController@getTransportadoras');
+
+    //Pega uma transportadora em específico
+    Route::get('{id}','TransportadoraController@getTransportadora');
+
+    //Adiciona uma nova transportadora
+    Route::post('','TransportadoraController@addTransportadora');
+
+    //Atualiza uma Transportadora
+    Route::put('{id}','TransportadoraController@atualizaTransportadora');
+
+    //Deleta a transportadora
+    Route::delete('{id}','TransportadoraController@deletaTransportadora');
+});
