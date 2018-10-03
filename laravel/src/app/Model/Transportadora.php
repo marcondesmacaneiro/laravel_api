@@ -33,8 +33,15 @@ class Transportadora extends Model
 
     public function addTransportadora($request) {
         $transportadora = new Transportadora($request);
-        $transportadora->save();
-        return $transportadora;
+        
+        //Verificação se já existe
+        try {
+            $transportadora->save();
+            return $transportadora;
+        } catch (\Exception $e) {
+            return false;
+        }
+        
     } 
 
     public function alteraTransportadora($req,$id) {

@@ -49,6 +49,23 @@ Route::group(["prefix" => "transportadora"], function() {
     Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
 
+Route::group(["prefix" => "clidemo"], function() {
+    //Lista os clidemos
+    Route::get('','ClidemoController@getClidemos');
+
+    //Pega um clidemo em específico
+    Route::get('{id}','ClidemoController@getClidemo');
+
+    //Adiciona um novo clidemo
+    Route::post('','ClidemoController@addClidemo');
+
+    //Atualiza um Clidemo
+    Route::put('{id}','ClidemoController@atualizaClidemo');
+
+    //Deleta o clidemo
+    Route::delete('{id}','ClidemoController@deletaClidemo');
+});
+
 
 Route::group(["prefix" => "produtos"], function() {
     //Lista os produtos
