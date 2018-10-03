@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 class FuncionariosTerritorios extends Model
 {
     protected $table = 'funcionarios_territorios';
-    protected $fillable = array('IDFuncionario', 'IDTerritorio');
 
     public function todosFuncionariosTerritorios() {
         return DB::table($this->table)
@@ -39,30 +38,52 @@ class FuncionariosTerritorios extends Model
     public function salvarFuncionarioTerritorio() {
         $input = Input::all();
 
-        DB::table('funcionarios_territorios')->insert($input);
+        DB::table($this->table)->insert($input);
 
         $funcionarioTerritorio = new FuncionariosTerritorios($input);
 
         return $funcionarioTerritorio;
     }
 
-    public function atualizarFuncionarioTerritorio($id) {
-        $funcionarioTerritorio = self::find($id);
+    public function atualizarFuncionarioTerritorio($idFuncionario, $idTerritorio) {
+        $funcionarioTerritorio = DB::table($this->table)
+            ->join('funcionarios', 'funcionarios_territorios.IDFuncionario', '=', 'funcionarios.IDFuncionario')
+            ->join('territorios', 'funcionarios_territorios.IDTerritorio', '=', 'territorios.IDTerritorio')
+            ->select('Nome', 'Sobrenome', 'DescricaoTerritorio')
+            ->where([
+                ['funcionarios_territorios.IDFuncionario', '=', $idFuncionario],
+                ['funcionarios_territorios.IDTerritorio', '=', $idTerritorio],
+            ])
+            ->get();
         if (is_null($funcionarioTerritorio)) {
             return false;
         }
         $input = Input::all();
-        $funcionarioTerritorio->fill($input);
+        DB::table($this->table)->update($input)->where([
+            ['funcionarios_territorios.IDFuncionario', '=', $idFuncionario],
+            ['funcionarios_territorios.IDTerritorio', '=', $idTerritorio],
+        ]);
         $funcionarioTerritorio->save();
         return $funcionarioTerritorio;
     }
 
-    public function deletarFuncionarioTerritorio($id) {
-        $funcionarioTerritorio = self::find($id);
+    public function deletarFuncionarioTerritorio($idFuncionario, $idTerritorio) {
+        $funcionarioTerritorio = DB::table($this->table)
+            ->join('funcionarios', 'funcionarios_territorios.IDFuncionario', '=', 'funcionarios.IDFuncionario')
+            ->join('territorios', 'funcionarios_territorios.IDTerritorio', '=', 'territorios.IDTerritorio')
+            ->select('Nome', 'Sobrenome', 'DescricaoTerritorio')
+            ->where([
+                ['funcionarios_territorios.IDFuncionario', '=', $idFuncionario],
+                ['funcionarios_territorios.IDTerritorio', '=', $idTerritorio],
+            ])
+            ->get();
         if (is_null($funcionarioTerritorio)) {
             return false;
         }
-        return $funcionarioTerritorio->delete();
+        return DB::table($this->table)->where([
+            ['funcionarios_territorios.IDFuncionario', '=', $idFuncionario],
+            ['funcionarios_territorios.IDTerritorio', '=', $idTerritorio],
+        ])->delete();
     }
 
 }

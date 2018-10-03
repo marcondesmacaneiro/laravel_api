@@ -36,8 +36,8 @@ class FuncionariosTerritoriosController extends BaseController {
             ->header("Content-Type","application/json");
     }
 
-    public function atualizarFuncionarioTerritorio($id) {
-        $funcionarioTerritorio = $this->funcionarioTerritorio->atualizarfuncionarioTerritorio($id);
+    public function atualizarFuncionarioTerritorio($idFuncionario, $idTerritorio) {
+        $funcionarioTerritorio = $this->funcionarioTerritorio->atualizarfuncionarioTerritorio($idFuncionario, $idTerritorio);
         if (!$funcionarioTerritorio) {
             return response()->json(['response','Funcionário-Território não encontrado'], 400)
             ->header("Content-Type","application/json");
@@ -46,8 +46,8 @@ class FuncionariosTerritoriosController extends BaseController {
             ->header("Content-Type","application/json");
     }
 
-    public function deletarFuncionarioTerritorio($id) {
-        $funcionarioTerritorio = $this->funcionarioTerritorio->deletarFuncionarioTerritorio($id);
+    public function deletarFuncionarioTerritorio($idFuncionario, $idTerritorio) {
+        $funcionarioTerritorio = $this->funcionarioTerritorio->deletarFuncionarioTerritorio($idFuncionario, $idTerritorio);
         if (!$funcionarioTerritorio) {
             return response()->json(['response','Funcionário-Território não encontrado'], 400)
             ->header("Content-Type","application/json");
