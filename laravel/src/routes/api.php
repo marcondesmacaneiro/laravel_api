@@ -32,6 +32,7 @@ Route::group(['prefix' => 'regiao'], function () {
 
 });
 
+
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
     Route::get('', 'FuncionariosTerritoriosController@todosFuncionariosTerritorios');
@@ -45,3 +46,20 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
     Route::delete('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@deletarFuncionarioTerritorio');
 
 });
+
+
+//by Gabriel Klug
+Route::group(['prefix' => 'produto'], function () {
+
+    Route::get('', 'ProdutoController@todosProdutos');
+
+    Route::get('{IDProduto}', 'ProdutoController@getProduto');
+
+    Route::post('', 'ProdutoController@salvarProduto');
+
+    Route::put('{IDProduto}', 'ProdutoController@atualizarProduto');
+
+    Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
+
+});
+
