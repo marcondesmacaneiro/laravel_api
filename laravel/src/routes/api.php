@@ -31,3 +31,18 @@ Route::group(['prefix' => 'regiao'], function () {
     Route::delete('{id}', 'RegiaoController@deletarRegiao');
 
 });
+
+Route::group(['prefix' => 'clientes'], function () {
+
+    Route::get('', 'ClientesController@getAllClientes');
+
+    Route::get('{id}', 'ClientesController@getCliente');
+
+    Route::post('', 'ClientesController@saveCliente');
+
+    Route::put('{id}', 'ClientesController@updatePessoa');
+
+    Route::delete('{id}', 'ClientesController@deleteCliente');
+
+});
+
