@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
@@ -29,5 +29,19 @@ Route::group(['prefix' => 'regiao'], function () {
     Route::put('{id}', 'RegiaoController@atualizarRegiao');
 
     Route::delete('{id}', 'RegiaoController@deletarRegiao');
+
+});
+
+Route::group(['prefix' => 'funcionarios_territorios'], function () {
+
+    Route::get('', 'FuncionariosTerritoriosController@todosFuncionariosTerritorios');
+
+    Route::get('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@getFuncionarioTerritorio');
+
+    Route::post('', 'FuncionariosTerritoriosController@salvarFuncionarioTerritorio');
+
+    Route::put('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@atualizarFuncionarioTerritorio');
+
+    Route::delete('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@deletarFuncionarioTerritorio');
 
 });
