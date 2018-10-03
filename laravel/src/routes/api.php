@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
@@ -65,4 +65,35 @@ Route::group(["prefix" => "produtos"], function() {
 
     //Deleta um produto
     Route::delete('{id}','ProdutosController@deletaProduto');
+});
+
+
+Route::group(['prefix' => 'funcionarios_territorios'], function () {
+
+    Route::get('', 'FuncionariosTerritoriosController@todosFuncionariosTerritorios');
+
+    Route::get('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@getFuncionarioTerritorio');
+
+    Route::post('', 'FuncionariosTerritoriosController@salvarFuncionarioTerritorio');
+
+    Route::put('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@atualizarFuncionarioTerritorio');
+
+    Route::delete('{IDFuncionario}/{IDTerritorio}', 'FuncionariosTerritoriosController@deletarFuncionarioTerritorio');
+
+});
+
+
+//by Gabriel Klug
+Route::group(['prefix' => 'produto'], function () {
+
+    Route::get('', 'ProdutoController@todosProdutos');
+
+    Route::get('{IDProduto}', 'ProdutoController@getProduto');
+
+    Route::post('', 'ProdutoController@salvarProduto');
+
+    Route::put('{IDProduto}', 'ProdutoController@atualizarProduto');
+
+    Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
+
 });
