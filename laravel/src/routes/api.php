@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
@@ -29,5 +29,20 @@ Route::group(['prefix' => 'regiao'], function () {
     Route::put('{id}', 'RegiaoController@atualizarRegiao');
 
     Route::delete('{id}', 'RegiaoController@deletarRegiao');
+
+});
+
+//by Gabriel Klug
+Route::group(['prefix' => 'produto'], function () {
+
+    Route::get('', 'ProdutoController@todosProdutos');
+
+    Route::get('{IDProduto}', 'ProdutoController@getProduto');
+
+    Route::post('', 'ProdutoController@salvarProduto');
+
+    Route::put('{IDProduto}', 'ProdutoController@atualizarProduto');
+
+    Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
