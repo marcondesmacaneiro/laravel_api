@@ -21,8 +21,14 @@ class TransportadoraController extends Controller
 
     //Adiciona uma nova transportadora com base no Request
     public function addTransportadora(Request $request) {
-        return response()->json($this->transportadora->addTransportadora($request->all()),201)
-        ->header("Content-Type","application/json");
+        $adicionou = $this->transportadora->addTransportadora($request->all());
+        if (!$adicionou) {
+            return response()->json(['resposta' => 'Já existe'],409)
+            ->header("Content-Type","application/json");
+        } else {
+            return response()->json($adicionou,201)
+            ->header("Content-Type","application/json");
+        }
     }
 
     public function getTransportadora($id) {
