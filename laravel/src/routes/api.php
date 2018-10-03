@@ -48,3 +48,21 @@ Route::group(["prefix" => "transportadora"], function() {
     //Deleta a transportadora
     Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
+
+
+Route::group(["prefix" => "produtos"], function() {
+    //Lista os produtos
+    Route::get('','ProdutosController@getProdutos');
+
+    //Pega um produto específico
+    Route::get('{id}','ProdutosController@getProduto');
+
+    //Adiciona uma novo produto
+    Route::post('','ProdutosController@addProduto');
+
+    //Atualiza um produto
+    Route::put('{id}','ProdutosController@atualizaProduto');
+
+    //Deleta um produto
+    Route::delete('{id}','ProdutosController@deletaProduto');
+});
