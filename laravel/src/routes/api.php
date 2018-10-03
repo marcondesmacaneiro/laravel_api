@@ -32,6 +32,7 @@ Route::group(['prefix' => 'regiao'], function () {
 
 });
 
+<<<<<<< HEAD
 //by Gabriel Klug
 Route::group(['prefix' => 'produto'], function () {
 
@@ -46,3 +47,19 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
+=======
+Route::group(['prefix' => 'clientes'], function () {
+
+    Route::get('', 'ClientesController@getAllClientes');
+
+    Route::get('{id}', 'ClientesController@getCliente');
+
+    Route::post('', 'ClientesController@saveCliente');
+
+    Route::put('{id}', 'ClientesController@updatePessoa');
+
+    Route::delete('{id}', 'ClientesController@deleteCliente');
+
+});
+
+>>>>>>> 640f8c475711fb82d72e11e9da8623f61e2e4c3e
