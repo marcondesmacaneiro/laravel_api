@@ -32,6 +32,20 @@ Route::group(['prefix' => 'regiao'], function () {
 
 });
 
+Route::group(['prefix' => 'ordens_detalhes'], function () {
+
+    Route::get('', 'Ordens_detalhesController@todasOrdens');
+
+    Route::get('{id}', 'Ordens_detalhesController@getOrdem');
+
+    Route::post('', 'Ordens_detalhesController@addOrdem');
+
+    Route::put('{id}', 'Ordens_detalhesController@atualizarOrdem');
+
+    Route::delete('{id}', 'Ordens_detalhesController@deletarOrdem');
+
+});
+
 Route::group(["prefix" => "transportadora"], function() {
     //Lista as transportadoras
     Route::get('','TransportadoraController@getTransportadoras');
@@ -116,30 +130,4 @@ Route::group(['prefix' => 'produto'], function () {
 });
 
 
-Route::group(['prefix' => 'regiao'], function () {
 
-    Route::get('', 'RegiaoController@todasRegioes');
-
-    Route::get('{id}', 'RegiaoController@getRegiao');
-
-    Route::post('', 'RegiaoController@addRegiao');
-
-    Route::put('{id}', 'RegiaoController@atualizarRegiao');
-
-    Route::delete('{id}', 'RegiaoController@deletarRegiao');
-
-});
-
-Route::group(['prefix' => 'ordens_detalhes'], function () {
-
-    Route::get('', 'Ordens_detalhesController@todasOrdens');
-
-    Route::get('{id}', 'Ordens_detalhesController@getOrdem');
-
-    Route::post('', 'Ordens_detalhesController@addOrdem');
-
-    Route::put('{id}', 'Ordens_detalhesController@atualizarOrdem');
-
-    Route::delete('{id}', 'Ordens_detalhesController@deletarOrdem');
-
-});
