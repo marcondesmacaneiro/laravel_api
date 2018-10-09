@@ -140,7 +140,7 @@ Route::group(['prefix' => 'funcionario'], function () {
 
     Route::get('{id}', 'FuncionarioController@getFuncionario');
 
-    Route::post('', 'FuncionarioController@salvarFuncionario');
+    Route::post('', 'FuncionarioController@addFuncionario');
 
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
