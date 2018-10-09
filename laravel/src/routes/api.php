@@ -129,5 +129,23 @@ Route::group(['prefix' => 'produto'], function () {
 
 });
 
+/**
+ * @author Ivan Vinicius Boneti
+ * @package laravel_api
+ * @subpackage routes 
+ */
+Route::group(['prefix' => 'funcionario'], function () {
+
+    Route::get('', 'FuncionarioController@todosFuncionario');
+
+    Route::get('{id}', 'FuncionarioController@getFuncionario');
+
+    Route::post('', 'FuncionarioController@salvarFuncionario');
+
+    Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
+
+    Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
+
+});
 
 
