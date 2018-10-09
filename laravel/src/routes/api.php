@@ -148,4 +148,18 @@ Route::group(['prefix' => 'funcionario'], function () {
 
 });
 
+//costumerDemo
+Route::group(['prefix' => 'customer'], function () {
+
+    Route::get('', 'CustomerCustomerDemoController@todosCustomers');
+
+    Route::get('{id}', 'CustomerCustomerDemoController@getCustomers');
+
+    Route::post('', 'CustomerCustomerDemoController@salvarCustomers');
+
+    Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
+
+    Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
+
+});
 
