@@ -132,7 +132,7 @@ Route::group(['prefix' => 'produto'], function () {
 /**
  * @author Ivan Vinicius Boneti
  * @package laravel_api
- * @subpackage routes 
+ * @subpackage routes
  */
 Route::group(['prefix' => 'funcionario'], function () {
 
@@ -146,6 +146,21 @@ Route::group(['prefix' => 'funcionario'], function () {
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 
+});
+
+/**
+ * Rota para os Clientes
+ *
+ * @author Roberto Klann
+ * @package Routes
+ * @since  02/10/2018
+ */
+Route::group(['prefix' => 'clientes'], function () {
+    Route::get('', 'ClientesController@getAllClientes');
+    Route::get('{id}', 'ClientesController@getCliente');
+    Route::post('', 'ClientesController@saveCliente');
+    Route::put('{id}', 'ClientesController@updateCLiente');
+    Route::delete('{id}', 'ClientesController@deleteCliente');
 });
 
 
