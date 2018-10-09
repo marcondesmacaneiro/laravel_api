@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
+//Lucas Sebold
 Route::group(['prefix' => 'ordens'], function () {
 
     Route::get('', 'OrdensController@todasOrdens');
@@ -155,7 +156,6 @@ Route::group(['prefix' => 'funcionario'], function () {
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 
 });
-
 /**
  * Rota para os Clientes
  *
@@ -169,4 +169,19 @@ Route::group(['prefix' => 'clientes'], function () {
     Route::post('', 'ClientesController@saveCliente');
     Route::put('{id}', 'ClientesController@updateCLiente');
     Route::delete('{id}', 'ClientesController@deleteCliente');
+});
+
+//costumerDemo
+Route::group(['prefix' => 'customer'], function () {
+
+    Route::get('', 'CustomerCustomerDemoController@todosCustomers');
+
+    Route::get('{id}', 'CustomerCustomerDemoController@getCustomers');
+
+    Route::post('', 'CustomerCustomerDemoController@salvarCustomers');
+
+    Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
+
+    Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
+
 });
