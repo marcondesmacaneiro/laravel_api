@@ -32,6 +32,20 @@ Route::group(['prefix' => 'regiao'], function () {
 
 });
 
+Route::group(['prefix' => 'ordens_detalhes'], function () {
+
+    Route::get('', 'Ordens_detalhesController@todasOrdens');
+
+    Route::get('{id}', 'Ordens_detalhesController@getOrdem');
+
+    Route::post('', 'Ordens_detalhesController@addOrdem');
+
+    Route::put('{id}', 'Ordens_detalhesController@atualizarOrdem');
+
+    Route::delete('{id}', 'Ordens_detalhesController@deletarOrdem');
+
+});
+
 Route::group(["prefix" => "transportadora"], function() {
     //Lista as transportadoras
     Route::get('','TransportadoraController@getTransportadoras');
@@ -49,7 +63,33 @@ Route::group(["prefix" => "transportadora"], function() {
     Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
 
-//William Goebel
+
+Route::group(["prefix" => "clidemo"], function() {
+    //Lista os clidemos
+    Route::get('','ClidemoController@getClidemos');
+
+    //Pega um clidemo em específico
+    Route::get('{id}','ClidemoController@getClidemo');
+
+    //Adiciona um novo clidemo
+    Route::post('','ClidemoController@addClidemo');
+
+    //Atualiza um Clidemo
+    Route::put('{id}','ClidemoController@atualizaClidemo');
+
+    //Deleta o clidemo
+    Route::delete('{id}','ClidemoController@deletaClidemo');
+});
+
+
+/**
+ * Rota para os Produtos
+ *
+ * @author William Goebel
+ * @package Routes
+ * @since  02/10/2018
+ */
+
 Route::group(["prefix" => "produtos"], function() {
     //Lista os produtos
     Route::get('','ProdutosController@getProdutos');
@@ -97,3 +137,39 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
+
+/**
+ * @author Ivan Vinicius Boneti
+ * @package laravel_api
+ * @subpackage routes
+ */
+Route::group(['prefix' => 'funcionario'], function () {
+
+    Route::get('', 'FuncionarioController@todosFuncionario');
+
+    Route::get('{id}', 'FuncionarioController@getFuncionario');
+
+    Route::post('', 'FuncionarioController@salvarFuncionario');
+
+    Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
+
+    Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
+
+});
+
+/**
+ * Rota para os Clientes
+ *
+ * @author Roberto Klann
+ * @package Routes
+ * @since  02/10/2018
+ */
+Route::group(['prefix' => 'clientes'], function () {
+    Route::get('', 'ClientesController@getAllClientes');
+    Route::get('{id}', 'ClientesController@getCliente');
+    Route::post('', 'ClientesController@saveCliente');
+    Route::put('{id}', 'ClientesController@updateCLiente');
+    Route::delete('{id}', 'ClientesController@deleteCliente');
+});
+
+
