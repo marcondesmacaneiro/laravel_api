@@ -1,6 +1,14 @@
 <?php
-//William Goebel
+
 namespace App\Model;
+
+/**
+ * Modelo dos Clientes
+ *
+ * @package Model
+ * @author  William Goebel
+ * @since   02/10/2018
+ */
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +18,7 @@ class Produtos extends Model {
     protected $table = 'produtos';
     protected $fillable = array('IDProduto','NomeProduto','IDFornecedor','IDCategoria', 'QuantidadePorUnidade', 'PrecoUnitario',  'UnidadesEmEstoque', 'UnidadesEmOrdem', 'NivelDeReposicao', 'Descontinuado');
     protected $primaryKey = 'IDProduto';
-    public $timestamp = false;
+    public $timestamps = false;
 
     public function getProdutos(){
         return self::all();
@@ -18,13 +26,9 @@ class Produtos extends Model {
 
     public function addProduto(){
         $input = Input::all();
-        //dd($input);
         $produto = new Produtos($input); // mass assingment
         $produto->save();
         return $produto;
-        
-        //$primeiro_nome = $input["primeiro_nome"];
-        //$segundo_nome  = $input["segundo_nome"];
     }
 
     public function getProduto($id){
@@ -52,5 +56,5 @@ class Produtos extends Model {
         $produto->fill($input);
         $produto->save();
         return $produto;
-    }
+    }    
 }

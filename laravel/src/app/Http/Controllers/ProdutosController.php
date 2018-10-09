@@ -21,21 +21,6 @@ class ProdutosController extends BaseController {
                 ->header("Content-Type","aplication/json");
         }
 
-        public function addProduto(){
-            return response()->json($this->produto->addProduto(),201)
-                ->header("Content-Type","aplication/json");
-        }
-
-        public function atualizaProduto($id){
-            $produto= $this->produto->atualizaProduto($id);
-            if(!$produto){
-                return response()->json(['response','Produto não encontarda'],400)
-                ->header("Content-Type","aplication/json");
-            }
-            return response()->json($produto,400)
-                ->header("Content-Type","aplication/json");
-        }
-
         public function getProduto($id){
             $produto= $this->produto->getProduto($id);
             if(!$produto){
@@ -45,6 +30,18 @@ class ProdutosController extends BaseController {
             return response()->json($produto,400)
                 ->header("Content-Type","aplication/json");
         }
+
+        public function addProduto(){
+            return response()->json($this->produto->addProduto(),201)->header("Content-Type","aplication/json");
+        }
+
+        public function atualizaProduto($id){
+            $produto= $this->produto->atualizaProduto($id);
+            if(!$produto){
+                return response()->json(['response','Produto não encontarda'],400)->header("Content-Type","aplication/json");
+            }
+            return response()->json($produto,400)->header("Content-Type","aplication/json");
+        }  
 
         public function deletaProduto($id){
             $produto= $this->produto->deletaProduto($id);
