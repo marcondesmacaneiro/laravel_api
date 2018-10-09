@@ -17,15 +17,19 @@ class Funcionario extends Model
 {
     protected $table = 'funcionarios';
     protected $fillable = array(
-                                "IDFuncionario", "Sobrenome", "Nome",
-                                "Titulo", "TituloCortesia", "DataNac",
-                                "DataAdmissao", "Endereco", "Cidade",
-                                "Regiao", "Cep", "Pais",
-                                "TelefoneResidencial", "Extensao", "Notas",
-                                "Reportase"
+                                "IDFuncionario",       "Sobrenome",       "Nome",
+                                "Titulo",              "TituloCortesia",  "DataNac",
+                                "DataAdmissao",        "Endereco",        "Cidade",
+                                "Regiao",              "Cep",             "Pais",
+                                "TelefoneResidencial", "Extensao",        "Reportase"
                                );
+
+    protected $hidden = ['Foto', 'FotoCaminho', 'Notas'];
+
+    //header('Content-type: image/bmp');
+
     protected $primaryKey = "IDFuncionario";
-    public $timestamp = false;
+    public $timestamps = false;
 
     public function todosFuncionario()
     {
@@ -58,7 +62,7 @@ class Funcionario extends Model
         $input = Input::all();
         $funcionario->fill($input);
         $funcionario->save();
-        return $funcionario;
+        return self::find($id);
     }
 
     public function deletarFuncionario($id)
