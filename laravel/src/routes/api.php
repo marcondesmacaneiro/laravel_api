@@ -17,6 +17,7 @@ Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
+//Lucas Sebold
 Route::group(['prefix' => 'ordens'], function () {
 
     Route::get('', 'OrdensController@todasOrdens');
