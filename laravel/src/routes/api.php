@@ -17,17 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix' => 'ordens'], function () {
 
-Route::group(['prefix' => 'regiao'], function () {
+    Route::get('', 'OrdensController@todasOrdens');
 
-    Route::get('', 'RegiaoController@todasRegioes');
+    Route::get('{id}', 'OrdensController@getOrdem');
 
-    Route::get('{id}', 'RegiaoController@getRegiao');
+    Route::post('', 'OrdensController@addOrdem');
 
-    Route::post('', 'RegiaoController@salvarRegiao');
+    Route::put('{id}', 'OrdensController@atualizarOrdem');
 
-    Route::put('{id}', 'RegiaoController@atualizarRegiao');
-
-    Route::delete('{id}', 'RegiaoController@deletarRegiao');
+    Route::delete('{id}', 'OrdensController@deletarOrdem');
 
 });
+
