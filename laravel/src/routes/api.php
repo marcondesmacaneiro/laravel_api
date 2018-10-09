@@ -63,6 +63,7 @@ Route::group(["prefix" => "transportadora"], function() {
     Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
 
+
 Route::group(["prefix" => "clidemo"], function() {
     //Lista os clidemos
     Route::get('','ClidemoController@getClidemos');
@@ -80,6 +81,14 @@ Route::group(["prefix" => "clidemo"], function() {
     Route::delete('{id}','ClidemoController@deletaClidemo');
 });
 
+
+/**
+ * Rota para os Produtos
+ *
+ * @author William Goebel
+ * @package Routes
+ * @since  02/10/2018
+ */
 
 Route::group(["prefix" => "produtos"], function() {
     //Lista os produtos
@@ -140,14 +149,13 @@ Route::group(['prefix' => 'funcionario'], function () {
 
     Route::get('{id}', 'FuncionarioController@getFuncionario');
 
-    Route::post('', 'FuncionarioController@salvarFuncionario');
+    Route::post('', 'FuncionarioController@addFuncionario');
 
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 
 });
-
 /**
  * Rota para os Clientes
  *
@@ -161,4 +169,19 @@ Route::group(['prefix' => 'clientes'], function () {
     Route::post('', 'ClientesController@saveCliente');
     Route::put('{id}', 'ClientesController@updateCLiente');
     Route::delete('{id}', 'ClientesController@deleteCliente');
+});
+
+//costumerDemo
+Route::group(['prefix' => 'customer'], function () {
+
+    Route::get('', 'CustomerCustomerDemoController@todosCustomers');
+
+    Route::get('{id}', 'CustomerCustomerDemoController@getCustomers');
+
+    Route::post('', 'CustomerCustomerDemoController@salvarCustomers');
+
+    Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
+
+    Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
+
 });
