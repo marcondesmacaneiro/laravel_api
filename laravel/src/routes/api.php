@@ -17,18 +17,17 @@ Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix' => 'ordens'], function () {
 
-Route::group(['prefix' => 'regiao'], function () {
+    Route::get('', 'OrdensController@todasOrdens');
 
-    Route::get('', 'RegiaoController@todasRegioes');
+    Route::get('{id}', 'OrdensController@getOrdem');
 
-    Route::get('{id}', 'RegiaoController@getRegiao');
+    Route::post('', 'OrdensController@addOrdem');
 
-    Route::post('', 'RegiaoController@salvarRegiao');
+    Route::put('{id}', 'OrdensController@atualizarOrdem');
 
-    Route::put('{id}', 'RegiaoController@atualizarRegiao');
-
-    Route::delete('{id}', 'RegiaoController@deletarRegiao');
+    Route::delete('{id}', 'OrdensController@deletarOrdem');
 
 });
 
@@ -63,6 +62,7 @@ Route::group(["prefix" => "transportadora"], function() {
     Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
 
+
 Route::group(["prefix" => "clidemo"], function() {
     //Lista os clidemos
     Route::get('','ClidemoController@getClidemos');
@@ -80,6 +80,14 @@ Route::group(["prefix" => "clidemo"], function() {
     Route::delete('{id}','ClidemoController@deletaClidemo');
 });
 
+
+/**
+ * Rota para os Produtos
+ *
+ * @author William Goebel
+ * @package Routes
+ * @since  02/10/2018
+ */
 
 Route::group(["prefix" => "produtos"], function() {
     //Lista os produtos
@@ -132,7 +140,7 @@ Route::group(['prefix' => 'produto'], function () {
 /**
  * @author Ivan Vinicius Boneti
  * @package laravel_api
- * @subpackage routes 
+ * @subpackage routes
  */
 Route::group(['prefix' => 'funcionario'], function () {
 
@@ -140,12 +148,26 @@ Route::group(['prefix' => 'funcionario'], function () {
 
     Route::get('{id}', 'FuncionarioController@getFuncionario');
 
-    Route::post('', 'FuncionarioController@salvarFuncionario');
+    Route::post('', 'FuncionarioController@addFuncionario');
 
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 
+});
+/**
+ * Rota para os Clientes
+ *
+ * @author Roberto Klann
+ * @package Routes
+ * @since  02/10/2018
+ */
+Route::group(['prefix' => 'clientes'], function () {
+    Route::get('', 'ClientesController@getAllClientes');
+    Route::get('{id}', 'ClientesController@getCliente');
+    Route::post('', 'ClientesController@saveCliente');
+    Route::put('{id}', 'ClientesController@updateCLiente');
+    Route::delete('{id}', 'ClientesController@deleteCliente');
 });
 
 //costumerDemo
@@ -162,4 +184,3 @@ Route::group(['prefix' => 'customer'], function () {
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
 
 });
-

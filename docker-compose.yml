@@ -7,14 +7,14 @@ services:
     volumes:
       - ./mysql/data:/var/lib/mysql
     ports:
-      - 41111:3306
+      - 41120:3306
   app:
     build: laravel
     container_name: app-laravelapi
     volumes:
       - ./laravel/src:/var/www/app
     ports:
-      - 41112:8080
+      - 41121:8080
     links:
       - mysql
       - cache
@@ -24,7 +24,7 @@ services:
     links:
       - mysql
     ports:
-      - 41113:80
+      - 41122:80
     environment:
       - PMA_ARBITRARY=1
   cache:

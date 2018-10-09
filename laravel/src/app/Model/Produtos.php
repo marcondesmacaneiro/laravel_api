@@ -1,5 +1,5 @@
 <?php
-
+//William Goebel
 namespace App\Model;
 
 use Illuminate\Support\Facades\Input;
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produtos extends Model {
     protected $table = 'produtos';
-    protected $fillable = array('Descontinuado','IDCategoria','IDFornecedor','IDProduto', 'NivelDeReposicao', 'NomeProduto', 'PrecoUnitario', 'QuantidadePorUnidade', 'UnidadesEmEstoque', 'UnidadesEmOrdem');
+    protected $fillable = array('IDProduto','NomeProduto','IDFornecedor','IDCategoria', 'QuantidadePorUnidade', 'PrecoUnitario',  'UnidadesEmEstoque', 'UnidadesEmOrdem', 'NivelDeReposicao', 'Descontinuado');
     protected $primaryKey = 'IDProduto';
     public $timestamp = false;
 

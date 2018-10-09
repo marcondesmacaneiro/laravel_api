@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Funcionario extends Model
 {
-    protected $table = 'funcionario';
+    protected $table = 'funcionarios';
     protected $fillable = array(
                                 "IDFuncionario", "Sobrenome", "Nome",
                                 "Titulo", "TituloCortesia", "DataNac",

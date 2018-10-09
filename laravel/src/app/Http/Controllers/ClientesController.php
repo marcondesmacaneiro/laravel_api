@@ -53,7 +53,7 @@ class ClientesController extends BaseController {
     /**
      * Realiza o update no cliente com o id passado por parâmetro.
      */
-    public function updatePessoa($iId) {
+    public function updateCLiente($iId) {
         $oCliente = $this->cliente->updateClienteFromId($iId);
 
         if(!$oCliente) {
