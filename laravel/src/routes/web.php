@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+ * Modelo dos Clientes
+ *
+ * @package Model
+ * @author  William Goebel
+ * @since   02/10/2018
+ */
+Route::get('/produtos', function () {
+    return view('produtos');
+});
