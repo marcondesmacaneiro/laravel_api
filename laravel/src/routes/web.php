@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 /**
  * Modelo dos Clientes
  *
@@ -25,6 +26,14 @@ Route::get('/', function () {
  */
 Route::get('/produtos', function () {
     return view('produtos');
+=======
+Route::get('/consultaCliente', function () {
+    return view('ViewPadrao');
+});
+
+Route::get('/consultaClienteTeste', function () {
+    return view('ViewConsultaClientesTeste');
+>>>>>>> f48d3259b02637480092d923dea489774a6ae3e6
 });
 =======
 Route::get('/consultaprodutos', function () {

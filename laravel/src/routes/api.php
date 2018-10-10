@@ -195,6 +195,10 @@ Route::group(['prefix' => 'customer'], function () {
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
 
+<<<<<<< HEAD
+
+=======
 =======
 >>>>>>> Stashed changes
 });
+>>>>>>> c56f694def231e67aae2b261ab878882703a7a53
