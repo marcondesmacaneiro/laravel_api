@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 
 /**
  * Modelo dos Clientes
@@ -25,3 +26,9 @@ Route::get('/', function () {
 Route::get('/produtos', function () {
     return view('produtos');
 });
+=======
+Route::get('/consultaprodutos', function () {
+    return view('produtos');
+});
+
+>>>>>>> c56f694def231e67aae2b261ab878882703a7a53

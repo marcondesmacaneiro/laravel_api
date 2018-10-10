@@ -3,11 +3,12 @@ namespace App\Model;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
+
 class Ordens extends Model {
     protected $table = 'ordens';
-    protected $fillable = array("IDOrdem","IDProduto","PrecoUnitario","Quantidade","Desconto");
+    protected $fillable = array('IDOrdem','IDCliente','IDFunctionario','DataOrdem','DataRequisicao','DataEntrega','EnviadoPor','Frete');
     protected $primaryKey = 'IDOrdem';
-    public $timestamp = false;
+    public $timestamps = false;
 
     public function todasOrdens() {
         return self::all();
@@ -23,7 +24,7 @@ class Ordens extends Model {
 
     public function addOrdem() {
         $input = Input::all();
-        $ordem = new Ordem($input);
+        $ordem = new Ordens($input);
         $ordem->save();
         return $ordem;
     }
@@ -46,5 +47,5 @@ class Ordens extends Model {
         }
         return $ordem->delete(); 
     }
-    
+
 }
