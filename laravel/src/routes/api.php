@@ -1,6 +1,7 @@
 <?php
-
 use Illuminate\Http\Request;
+header('Access-Control-Allow-Origin: *', false);
+header('Access-Control-Allow-Methods: *', false);
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,18 @@ Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
 });
 
+//Lucas Sebold
+Route::group(['prefix' => 'ordens'], function () {
 
-Route::group(['prefix' => 'regiao'], function () {
+    Route::get('', 'OrdensController@todasOrdens');
 
-    Route::get('', 'RegiaoController@todasRegioes');
+    Route::get('{id}', 'OrdensController@getOrdem');
 
-    Route::get('{id}', 'RegiaoController@getRegiao');
+    Route::post('', 'OrdensController@addOrdem');
 
-    Route::post('', 'RegiaoController@salvarRegiao');
+    Route::put('{id}', 'OrdensController@atualizarOrdem');
 
-    Route::put('{id}', 'RegiaoController@atualizarRegiao');
-
-    Route::delete('{id}', 'RegiaoController@deletarRegiao');
+    Route::delete('{id}', 'OrdensController@deletarOrdem');
 
 });
 
@@ -63,6 +64,7 @@ Route::group(["prefix" => "transportadora"], function() {
     Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
 
+
 Route::group(["prefix" => "clidemo"], function() {
     //Lista os clidemos
     Route::get('','ClidemoController@getClidemos');
@@ -81,6 +83,14 @@ Route::group(["prefix" => "clidemo"], function() {
 });
 
 
+/**
+ * Rota para os Produtos
+ *
+ * @author William Goebel
+ * @package Routes
+ * @since  02/10/2018
+ */
+
 Route::group(["prefix" => "produtos"], function() {
     //Lista os produtos
     Route::get('','ProdutosController@getProdutos');
@@ -98,6 +108,7 @@ Route::group(["prefix" => "produtos"], function() {
     Route::delete('{id}','ProdutosController@deletaProduto');
 });
 
+<<<<<<< Updated upstream
 
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
@@ -114,6 +125,8 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 });
 
 
+=======
+>>>>>>> Stashed changes
 //by Gabriel Klug
 Route::group(['prefix' => 'produto'], function () {
 
@@ -128,6 +141,12 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
+<<<<<<< Updated upstream
+=======
+
+
+Route::group(['prefix' => 'clientes'], function () {
+>>>>>>> Stashed changes
 
 /**
  * @author Ivan Vinicius Boneti
@@ -140,14 +159,14 @@ Route::group(['prefix' => 'funcionario'], function () {
 
     Route::get('{id}', 'FuncionarioController@getFuncionario');
 
-    Route::post('', 'FuncionarioController@salvarFuncionario');
+    Route::post('', 'FuncionarioController@addFuncionario');
 
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 
+<<<<<<< Updated upstream
 });
-
 /**
  * Rota para os Clientes
  *
@@ -163,5 +182,23 @@ Route::group(['prefix' => 'clientes'], function () {
     Route::delete('{id}', 'ClientesController@deleteCliente');
 });
 
+//costumerDemo
+Route::group(['prefix' => 'customer'], function () {
 
+    Route::get('', 'CustomerCustomerDemoController@todosCustomers');
 
+    Route::get('{id}', 'CustomerCustomerDemoController@getCustomers');
+
+    Route::post('', 'CustomerCustomerDemoController@salvarCustomers');
+
+    Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
+
+    Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
+
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> Stashed changes
+});
+>>>>>>> c56f694def231e67aae2b261ab878882703a7a53

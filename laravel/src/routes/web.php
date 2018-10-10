@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 
 Route::get('/consultaCliente', function () {
     return view('ViewPadrao');
@@ -22,3 +23,9 @@ Route::get('/consultaCliente', function () {
 Route::get('/consultaClienteTeste', function () {
     return view('ViewConsultaClientesTeste');
 });
+=======
+Route::get('/consultaprodutos', function () {
+    return view('produtos');
+});
+
+>>>>>>> c56f694def231e67aae2b261ab878882703a7a53

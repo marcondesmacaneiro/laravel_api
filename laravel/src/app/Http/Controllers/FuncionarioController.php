@@ -4,6 +4,7 @@
  * @package laravel_api
  * @subpackage controller 
  */
+namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -62,11 +63,11 @@ class FuncionarioController extends BaseController
     public function deletarFuncionario($id)
     {
         $funcionario = $this->funcionario->deletarFuncionario($id);
-        if (!$funcinario) {
-            return response()->json(['response', 'Funcionario não encontrada'], 400)
+        if (!$funcionario) {
+            return response()->json(['response', 'Funcionario não encontrado'], 400)
                 ->header('Content-Type', 'application/json');
         }
-        return response()->json(['response' => 'Funcionario deletada com sucesso!'], 200)
+        return response()->json(['response' => 'Funcionario deletado com sucesso!'], 200)
             ->header('Content-Type', 'application/json');
     }
 
