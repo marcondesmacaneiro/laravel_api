@@ -123,6 +123,10 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 //by Gabriel Klug
 Route::group(['prefix' => 'produto'], function () {
 
@@ -138,6 +142,10 @@ Route::group(['prefix' => 'produto'], function () {
 
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 /**
  * @author Ivan Vinicius Boneti
  * @package laravel_api
@@ -154,9 +162,15 @@ Route::group(['prefix' => 'funcionario'], function () {
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
+<<<<<<< HEAD
 
 });
 
+=======
+});
+
+
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 /**
  * Rota para os Clientes
  *
@@ -184,4 +198,9 @@ Route::group(['prefix' => 'customer'], function () {
     Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
+<<<<<<< HEAD
 });
+=======
+
+});
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
