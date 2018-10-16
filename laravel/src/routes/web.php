@@ -14,30 +14,34 @@
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-/**
- * Modelo dos Clientes
- *
- * @package Model
- * @author  William Goebel
- * @since   02/10/2018
- */
-Route::get('/produtos', function () {
-    return view('produtos');
-=======
+Route::group(["prefix" => "transportadora"], function() {
+    //Lista as transportadoras
+    Route::get('',function() {
+        return view('transportadora-lista');
+    });
+
+    //Pega uma transportadora em específico
+    //Route::get('{id}','TransportadoraController@getTransportadora');
+
+    //Adiciona uma nova transportadora
+    //Route::post('','TransportadoraController@addTransportadora');
+
+    //Atualiza uma Transportadora
+    //Route::put('{id}','TransportadoraController@atualizaTransportadora');
+
+    //Deleta a transportadora
+    //Route::delete('{id}','TransportadoraController@deletaTransportadora');
+});
+
 Route::get('/consultaCliente', function () {
     return view('ViewPadrao');
 });
 
 Route::get('/consultaClienteTeste', function () {
     return view('ViewConsultaClientesTeste');
->>>>>>> f48d3259b02637480092d923dea489774a6ae3e6
 });
-=======
+  
 Route::get('/consultaprodutos', function () {
     return view('produtos');
 });
-
->>>>>>> c56f694def231e67aae2b261ab878882703a7a53
