@@ -24,18 +24,10 @@ Route::group(["prefix" => "transportadora"], function() {
     Route::get('',function() {
         return view('transportadora-lista');
     });
+});
 
-    //Pega uma transportadora em específico
-    //Route::get('{id}','TransportadoraController@getTransportadora');
-
-    //Adiciona uma nova transportadora
-    //Route::post('','TransportadoraController@addTransportadora');
-
-    //Atualiza uma Transportadora
-    //Route::put('{id}','TransportadoraController@atualizaTransportadora');
-
-    //Deleta a transportadora
-    //Route::delete('{id}','TransportadoraController@deletaTransportadora');
+Route::get('/clidemo',function() {
+    return view('clidemo-lista');
 });
 
 Route::get('/consultaCliente', function () {
