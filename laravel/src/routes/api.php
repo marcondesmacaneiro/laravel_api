@@ -1,6 +1,7 @@
 <?php
-
 use Illuminate\Http\Request;
+header('Access-Control-Allow-Origin: *', false);
+header('Access-Control-Allow-Methods: *', false);
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +108,7 @@ Route::group(["prefix" => "produtos"], function() {
     Route::delete('{id}','ProdutosController@deletaProduto');
 });
 
+<<<<<<< Updated upstream
 
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
@@ -123,6 +125,8 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 });
 
 
+=======
+>>>>>>> Stashed changes
 //by Gabriel Klug
 Route::group(['prefix' => 'produto'], function () {
 
@@ -137,6 +141,12 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
+<<<<<<< Updated upstream
+=======
+
+
+Route::group(['prefix' => 'clientes'], function () {
+>>>>>>> Stashed changes
 
 /**
  * @author Ivan Vinicius Boneti
@@ -155,6 +165,7 @@ Route::group(['prefix' => 'funcionario'], function () {
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 
+<<<<<<< Updated upstream
 });
 /**
  * Rota para os Clientes
@@ -184,4 +195,10 @@ Route::group(['prefix' => 'customer'], function () {
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
 
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> Stashed changes
 });
+>>>>>>> c56f694def231e67aae2b261ab878882703a7a53

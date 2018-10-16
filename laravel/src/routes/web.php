@@ -33,3 +33,15 @@ Route::group(["prefix" => "transportadora"], function() {
     //Deleta a transportadora
     //Route::delete('{id}','TransportadoraController@deletaTransportadora');
 });
+
+Route::get('/consultaCliente', function () {
+    return view('ViewPadrao');
+});
+
+Route::get('/consultaClienteTeste', function () {
+    return view('ViewConsultaClientesTeste');
+});
+  
+Route::get('/consultaprodutos', function () {
+    return view('produtos');
+});

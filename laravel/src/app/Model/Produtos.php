@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+
 /**
  * Modelo dos Clientes
  *
@@ -56,5 +57,6 @@ class Produtos extends Model {
         $produto->fill($input);
         $produto->save();
         return $produto;
-    }    
+    }
+    
 }
