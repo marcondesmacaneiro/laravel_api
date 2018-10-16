@@ -13,15 +13,15 @@
 
             <div class ="container">
                 <div class ="navbar-header">
-                    <a href ="/consultaCliente" class ="navbar-brand">North Wind</a>
+                    <a href ="/consultaPadrao" class ="navbar-brand">North Wind</a>
                 </div>
                 <div>
                     <ul class="nav nav-tabs">
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Clientes</a>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/consultaClienteTeste" id="buscar">Consultar Clientes</a>
-                            <a class="dropdown-item" href="">Cadastrar Clientes</a>
+                            <a class="dropdown-item" href="/consultaCliente" id="buscar">Consultar Clientes</a>
+                            <a class="dropdown-item" href="/cadastroCliente">Cadastrar Clientes</a>
                           </div>
                         </li>
                     </ul>
