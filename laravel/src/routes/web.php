@@ -15,6 +15,38 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('/todosFuncionario', function () {
     return view('Funcionario');
+=======
+Route::group(["prefix" => "transportadora"], function() {
+    //Lista as transportadoras
+    Route::get('',function() {
+        return view('transportadora-lista');
+    });
+
+    //Pega uma transportadora em específico
+    //Route::get('{id}','TransportadoraController@getTransportadora');
+
+    //Adiciona uma nova transportadora
+    //Route::post('','TransportadoraController@addTransportadora');
+
+    //Atualiza uma Transportadora
+    //Route::put('{id}','TransportadoraController@atualizaTransportadora');
+
+    //Deleta a transportadora
+    //Route::delete('{id}','TransportadoraController@deletaTransportadora');
+});
+
+Route::get('/consultaCliente', function () {
+    return view('ViewPadrao');
+});
+
+Route::get('/consultaClienteTeste', function () {
+    return view('ViewConsultaClientesTeste');
+});
+  
+Route::get('/consultaprodutos', function () {
+    return view('produtos');
+>>>>>>> 4f7d69171fa189361667697fb71edba5596bcda9
 });
