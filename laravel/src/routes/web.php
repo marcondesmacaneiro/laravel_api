@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(["prefix" => "transportadora"], function() {
     //Lista as transportadoras
-    Route::get('lista',function() {
+    Route::get('',function() {
         return view('transportadora-lista');
     });
 
