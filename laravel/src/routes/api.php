@@ -108,7 +108,6 @@ Route::group(["prefix" => "produtos"], function() {
     Route::delete('{id}','ProdutosController@deletaProduto');
 });
 
-<<<<<<< Updated upstream
 
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
@@ -124,9 +123,10 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
 });
 
-
+<<<<<<< HEAD
 =======
->>>>>>> Stashed changes
+
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 //by Gabriel Klug
 Route::group(['prefix' => 'produto'], function () {
 
@@ -141,13 +141,11 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
-<<<<<<< Updated upstream
+
+<<<<<<< HEAD
 =======
 
-
-Route::group(['prefix' => 'clientes'], function () {
->>>>>>> Stashed changes
-
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 /**
  * @author Ivan Vinicius Boneti
  * @package laravel_api
@@ -164,9 +162,15 @@ Route::group(['prefix' => 'funcionario'], function () {
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
+<<<<<<< HEAD
 
-<<<<<<< Updated upstream
 });
+
+=======
+});
+
+
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 /**
  * Rota para os Clientes
  *
@@ -194,11 +198,9 @@ Route::group(['prefix' => 'customer'], function () {
     Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
-
 <<<<<<< HEAD
-
-=======
-=======
->>>>>>> Stashed changes
 });
->>>>>>> c56f694def231e67aae2b261ab878882703a7a53
+=======
+
+});
+>>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
