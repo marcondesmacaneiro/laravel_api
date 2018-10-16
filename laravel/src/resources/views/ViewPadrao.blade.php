@@ -11,7 +11,7 @@
 <body>
     <div style="background-color: #F5F5F5;">
 
-            <div class ="container">
+            <div class ="container col-xl-12">
                 <div class ="navbar-header">
                     <a href ="/consultaCliente" class ="navbar-brand">North Wind</a>
                 </div>
@@ -24,13 +24,20 @@
                             <a class="dropdown-item" href="">Cadastrar Clientes</a>
                           </div>
                         </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/ConsultaProdutosWilliam" id="buscar">Consultar Produtos</a>
+                            <a class="dropdown-item" href="">Cadastrar Produtos</a>
+                          </div>
+                        </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="container">
+            <!--<div class="container">-->
             @yield('content')
-            </div>
+            <!--</div>-->
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
