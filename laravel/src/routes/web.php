@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 Route::get('/todosFuncionario', function () {
     return view('Funcionario');
-=======
+});
+
 Route::group(["prefix" => "transportadora"], function() {
     //Lista as transportadoras
     Route::get('',function() {
@@ -40,5 +40,4 @@ Route::get('/consultaClienteTeste', function () {
   
 Route::get('/consultaprodutos', function () {
     return view('produtos');
->>>>>>> 4f7d69171fa189361667697fb71edba5596bcda9
 });
