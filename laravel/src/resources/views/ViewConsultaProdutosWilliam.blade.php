@@ -19,19 +19,18 @@
     <form>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#"><button type="button" class="btn btn-success">Adicionar</button></a>
+                <button type="button" class="btn btn-success" id="#gravar">Adicionar</button>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><button type="button" class="btn btn-primary">Alterar</button></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><button type="button" class="btn btn-danger">Excluir</button></a>
+                <button type="button" class="btn btn-danger">Excluir</button>
             </li>
         </ul>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                <th scope="col"><form><input type="checkbox"></form></th>
                 <th scope="col">IDProduto</th>
                 <th scope="col">NomeProduto</th>
                 <th scope="col">IDFornecedor</th>
@@ -42,14 +41,10 @@
                 <th scope="col">UnidadesEmOrdem</th>
                 <th scope="col">NivelDeReposicao</th>
                 <th scope="col">Descontinuado</th>
+                <th scope="col">Descontinuado</th>
                 </tr>
             </thead>
-            <tbody id="tabela">
-                <tr>
-                    <th scope="col"><form><input type="checkbox"></form></th>
-                    <th scope="row">1</th>
-                    
-                </tr>                        
+            <tbody id="tabela">                       
             </tbody>
         </table> 
     </form>       

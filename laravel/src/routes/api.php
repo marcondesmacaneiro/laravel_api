@@ -123,7 +123,6 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
 });
 
-
 //by Gabriel Klug
 Route::group(['prefix' => 'produto'], function () {
 
@@ -156,10 +155,7 @@ Route::group(['prefix' => 'funcionario'], function () {
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
-
-
 });
-
 
 /**
  * Rota para os Clientes

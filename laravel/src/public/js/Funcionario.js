@@ -2,33 +2,27 @@ $(document).ready(function() {
     buscaDados();
 
     function buscaDados() {
-      $.getJSON("http://localhost:41121/api/produtos/", function(data, status) {
+      $.getJSON("http://localhost:41121/api/funcionario/", function(data, status) {
         var sHtml = "";
         $.each(data, function(key, val) {
-   
-          sHtml += "<tr  class='registro' id='tr" + val.IDProduto + "'>\
-                        <th scope='col'>\
-                        <input type='radio' name='registro' id='radio" + val.IDProduto + "'>\
-                        </th>\
-                        <td>" + val.IDProduto + "</td>\
-                        <td>" + val.NomeProduto + "</td>\
-                        <td>" + val.IDFornecedor + "</td>\
-                        <td>" + val.IDCategoria + "</td>\
-                        <td>" + val.QuantidadePorUnidade + "</td>\
-                        <td>" + val.PrecoUnitario + "</td>\
-                        <td>" + val.UnidadesEmEstoque + "</td>\
-                        <td>" + val.UnidadesEmOrdem + "</td>\
-                        <td>" + val.NivelDeReposicao + "</td>\
-                        <td>" + val.Descontinuado + "</td>\
-                    </tr>";
+          sHtml +=  "<tr><td>" + val.IDFuncionario + 
+                    "</td><td>" + val.Sobrenome + 
+                    "</td><td>" + val.Nome + 
+                    "</td> <td>" + val.Titulo +  
+                    "</td><td>" + val.DataNac +  
+                    "</td><td>" + val.Endereco +
+                    "</td><td>" + val.Cidade +
+                    "</td><td>" + val.Regiao +
+                    "</td><td>" + val.Pais +
+                    "</td><td>" + val.TelefoneResidencial +
+                    "</td><td><i class='far fa-edit text-danger mx-1 my-1'></i>&nbsp;<i class='fas fa-trash text-danger my-1 mx-1'></i></td></tr>";
         });
 
-        document.getElementById("tabela").innerHTML = sHtml;
-        
+        $("#tabela").html(sHtml);
       });
     };
 
-    $("#gravar").click(function() {
+   /* $("#gravar").click(function() {
       let sNome = $("#nome").val();
 
       //enviado
@@ -88,9 +82,8 @@ $(document).ready(function() {
       }).then(res => {
         $("#buscar").click();
       });
-      }      
-    });
+      }
 
-    
-  
+    }); */
+
   });
