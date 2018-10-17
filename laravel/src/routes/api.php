@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Http\Request;
-header('Access-Control-Allow-Origin: *', false);
-header('Access-Control-Allow-Methods: *', false);
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: *');
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +108,6 @@ Route::group(["prefix" => "produtos"], function() {
     Route::delete('{id}','ProdutosController@deletaProduto');
 });
 
-
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
     Route::get('', 'FuncionariosTerritoriosController@todosFuncionariosTerritorios');
@@ -123,7 +122,11 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
 });
 
+
 //by Gabriel Klug
+
+//Gabriel Klug
+
 Route::group(['prefix' => 'produto'], function () {
 
     Route::get('', 'ProdutoController@todosProdutos');
@@ -137,6 +140,10 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
+
+
+
+Route::group(['prefix' => 'clientes'], function () {
 
 
 /**
@@ -155,7 +162,10 @@ Route::group(['prefix' => 'funcionario'], function () {
     Route::put('{id}', 'FuncionarioController@atualizarFuncionario');
 
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
+
 });
+
+
 
 /**
  * Rota para os Clientes
@@ -185,4 +195,6 @@ Route::group(['prefix' => 'customer'], function () {
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
 
+
 });
+

@@ -16,6 +16,18 @@ Route::get('/', function () {
 });
 
 
+/**
+ * Modelo dos Clientes
+ *
+ * @package Model
+ * @author  William Goebel
+ * @since   02/10/2018
+ */
+Route::get('/produtos', function () {
+    return view('produtos');
+});
+b
+
 
 Route::get('/todosFuncionario', function () {
     return view('Funcionario');
@@ -33,6 +45,7 @@ Route::get('/clidemo',function() {
 });
 
 
+
 Route::get('/consultaCliente', function () {
 
     return view('ViewPadrao');
@@ -42,6 +55,7 @@ Route::get('/consultaCliente', function () {
     return view('ViewConsultaClientesTeste');
 
 });
+
 
 /**
  * Web Routes
@@ -58,8 +72,9 @@ Route::get('/ConsultaProdutosWilliam', function () {
 
 
 Route::get('/consultaprodutos', function () {
-    return view('produtos');
+    return view('ViewProduto');
 });
+
 
 
 
@@ -70,3 +85,7 @@ Route::get('/cadastroCliente', function () {
 Route::get('/consultaprodutos', function () {
     return view('produtos');
 });
+Route::get('/produtos', function () {
+    return view('ViewProdutos');
+});
+
