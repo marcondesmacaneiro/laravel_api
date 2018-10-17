@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 /**
  * Modelo dos Clientes
@@ -43,6 +44,8 @@ Route::group(["prefix" => "transportadora"], function() {
 Route::get('/clidemo',function() {
     return view('clidemo-lista');
 });
+=======
+>>>>>>> Stashed changes
 
 Route::get('/consultaCliente', function () {
 >>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
@@ -52,11 +55,15 @@ Route::get('/consultaCliente', function () {
 Route::get('/consultaCliente', function () {
     return view('ViewConsultaClientesTeste');
 });
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 
+=======
+>>>>>>> Stashed changes
 Route::get('/consultaprodutos', function () {
-    return view('produtos');
+    return view('ViewProduto');
 });
+<<<<<<< Updated upstream
 
 
 Route::get('/cadastroCliente', function () {
@@ -69,3 +76,8 @@ Route::get('/consultaprodutos', function () {
     return view('produtos');
 });
 >>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
+=======
+Route::get('/produtos', function () {
+    return view('ViewProdutos');
+});
+>>>>>>> Stashed changes

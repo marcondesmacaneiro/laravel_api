@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Http\Request;
-header('Access-Control-Allow-Origin: *', false);
-header('Access-Control-Allow-Methods: *', false);
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: *');
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +108,10 @@ Route::group(["prefix" => "produtos"], function() {
     Route::delete('{id}','ProdutosController@deletaProduto');
 });
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
     Route::get('', 'FuncionariosTerritoriosController@todosFuncionariosTerritorios');
@@ -123,11 +126,15 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
 });
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
 
 >>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 //by Gabriel Klug
+=======
+//Gabriel Klug
+>>>>>>> Stashed changes
 Route::group(['prefix' => 'produto'], function () {
 
     Route::get('', 'ProdutoController@todosProdutos');
@@ -141,9 +148,16 @@ Route::group(['prefix' => 'produto'], function () {
     Route::delete('{IDProduto}', 'ProdutoController@deletarProduto');
 
 });
+<<<<<<< Updated upstream
 
 <<<<<<< HEAD
 =======
+=======
+
+
+Route::group(['prefix' => 'clientes'], function () {
+
+>>>>>>> Stashed changes
 
 >>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
 /**
@@ -164,6 +178,10 @@ Route::group(['prefix' => 'funcionario'], function () {
     Route::delete('{id}', 'FuncionarioController@deletarFuncionario');
 <<<<<<< HEAD
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 });
 
 =======
@@ -198,9 +216,15 @@ Route::group(['prefix' => 'customer'], function () {
     Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 });
 =======
 
 });
 >>>>>>> 2e54df34f00fbb518df66b2a855bfb6260e48518
+=======
+});
+
+});
+>>>>>>> Stashed changes
