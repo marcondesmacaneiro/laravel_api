@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Http\Request;
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: *');
 
@@ -12,7 +13,7 @@ header('Access-Control-Allow-Methods: *');
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
 |
-*/
+ */
 
 Route::middleware('auth:api')->get('/', function (Request $request) {
     return $request->user();
@@ -47,39 +48,38 @@ Route::group(['prefix' => 'ordens_detalhes'], function () {
 
 });
 
-Route::group(["prefix" => "transportadora"], function() {
+Route::group(["prefix" => "transportadora"], function () {
     //Lista as transportadoras
-    Route::get('','TransportadoraController@getTransportadoras');
+    Route::get('', 'TransportadoraController@getTransportadoras');
 
     //Pega uma transportadora em específico
-    Route::get('{id}','TransportadoraController@getTransportadora');
+    Route::get('{id}', 'TransportadoraController@getTransportadora');
 
     //Adiciona uma nova transportadora
-    Route::post('','TransportadoraController@addTransportadora');
+    Route::post('', 'TransportadoraController@addTransportadora');
 
     //Atualiza uma Transportadora
-    Route::put('{id}','TransportadoraController@atualizaTransportadora');
+    Route::put('{id}', 'TransportadoraController@atualizaTransportadora');
 
     //Deleta a transportadora
-    Route::delete('{id}','TransportadoraController@deletaTransportadora');
+    Route::delete('{id}', 'TransportadoraController@deletaTransportadora');
 });
 
-
-Route::group(["prefix" => "clidemo"], function() {
+Route::group(["prefix" => "clidemo"], function () {
     //Lista os clidemos
-    Route::get('','ClidemoController@getClidemos');
+    Route::get('', 'ClidemoController@getClidemos');
 
     //Pega um clidemo em específico
-    Route::get('{id}','ClidemoController@getClidemo');
+    Route::get('{id}', 'ClidemoController@getClidemo');
 
     //Adiciona um novo clidemo
-    Route::post('','ClidemoController@addClidemo');
+    Route::post('', 'ClidemoController@addClidemo');
 
     //Atualiza um Clidemo
-    Route::put('{id}','ClidemoController@atualizaClidemo');
+    Route::put('{id}', 'ClidemoController@atualizaClidemo');
 
     //Deleta o clidemo
-    Route::delete('{id}','ClidemoController@deletaClidemo');
+    Route::delete('{id}', 'ClidemoController@deletaClidemo');
 });
 
 
@@ -91,21 +91,21 @@ Route::group(["prefix" => "clidemo"], function() {
  * @since  02/10/2018
  */
 
-Route::group(["prefix" => "produtos"], function() {
+Route::group(["prefix" => "produtos"], function () {
     //Lista os produtos
-    Route::get('','ProdutosController@getProdutos');
+    Route::get('', 'ProdutosController@getProdutos');
 
     //Pega um produto específico
-    Route::get('{id}','ProdutosController@getProduto');
+    Route::get('{id}', 'ProdutosController@getProduto');
 
     //Adiciona uma novo produto
-    Route::post('','ProdutosController@addProduto');
+    Route::post('', 'ProdutosController@addProduto');
 
     //Atualiza um produto
-    Route::put('{id}','ProdutosController@atualizaProduto');
+    Route::put('{id}', 'ProdutosController@atualizaProduto');
 
     //Deleta um produto
-    Route::delete('{id}','ProdutosController@deletaProduto');
+    Route::delete('{id}', 'ProdutosController@deletaProduto');
 });
 
 Route::group(['prefix' => 'funcionarios_territorios'], function () {
@@ -124,9 +124,6 @@ Route::group(['prefix' => 'funcionarios_territorios'], function () {
 
 
 //by Gabriel Klug
-
-//Gabriel Klug
-
 Route::group(['prefix' => 'produto'], function () {
 
     Route::get('', 'ProdutoController@todosProdutos');
@@ -160,8 +157,6 @@ Route::group(['prefix' => 'funcionario'], function () {
 
 });
 
-
-
 /**
  * Rota para os Clientes
  *
@@ -189,7 +184,6 @@ Route::group(['prefix' => 'customer'], function () {
     Route::put('{id}', 'CustomerCustomerDemoController@atualizarCustomers');
 
     Route::delete('{id}', 'CustomerCustomerDemoController@deletarCustomers');
-
 
 });
 

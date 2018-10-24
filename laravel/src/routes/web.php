@@ -9,12 +9,11 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 /**
  * Modelo dos Clientes
@@ -31,29 +30,24 @@ Route::get('/todosFuncionario', function () {
     return view('Funcionario');
 });
 
-Route::group(["prefix" => "transportadora"], function() {
+Route::group(["prefix" => "transportadora"], function () {
     //Lista as transportadoras
-    Route::get('',function() {
+    Route::get('', function () {
         return view('transportadora-lista');
     });
 });
 
-Route::get('/clidemo',function() {
+Route::get('/clidemo', function () {
     return view('clidemo-lista');
 });
 
-
-
 Route::get('/consultaCliente', function () {
-
     return view('ViewPadrao');
 });
 
 Route::get('/consultaCliente', function () {
     return view('ViewConsultaClientesTeste');
-
 });
-
 
 /**
  * Web Routes
@@ -62,7 +56,6 @@ Route::get('/consultaCliente', function () {
  * @author  William Goebel
  * @since   02/10/2018
  */
-
 Route::get('/ConsultaProdutosWilliam', function () {
     return view('ViewConsultaProdutosWilliam');
 });
@@ -73,12 +66,10 @@ Route::get('/AdicionaProdutosWilliam', function () {
 });
 
 
-
-
 Route::get('/cadastroCliente', function () {
     return view('ViewManutencaoCliente');
 });
-  
+
 Route::get('/consultaprodutos', function () {
     return view('produtos');
 });

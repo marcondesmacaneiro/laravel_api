@@ -1,91 +1,96 @@
-var ultimoId;
 $(document).ready(function() {
-  mostrarProdutos();
-  });
+    buscaDados();
 
-function mostrarProdutos(){
-  $.getJSON("http://127.0.0.1:41121/api/produto", function(data, status) {
-  var items = [];
-  $.each(data, function(key, val) {
-    items.push(val);
-  });
-  //limpa tabela
-  $("#tabela01 td").parent().remove();
-  var tabela = "";
-  for (var i=0; i<items.length; i++){
-      tabela += "<tr><td>"+items[i].IDProduto+"</td>"+
-              "<td>"+items[i].NomeProduto+"</td>"+
-              "<td>"+items[i].IDFornecedor+"</td>"+
-              "<td>"+items[i].IDCategoria+"</td>"+
-              "<td>"+items[i].QuantidadePorUnidade+"</td>"+
-              "<td>"+items[i].PrecoUnitario+"</td>"+
-              "<td>"+items[i].UnidadesEmEstoque+"</td>"+
-              "<td>"+items[i].UnidadesEmOrdem+"</td>"+
-              "<td>"+items[i].NivelDeReposicao+"</td>"+
-              "<td>"+items[i].Descontinuado+"</td>"+
-              "<td><a class='btn' onclick='editarProduto("+items[i].IDProduto+");'><i class='fa fa-edit'></i></a>" +
-              "<a class='btn' onclick='excluiProduto("+items[i].IDProduto+");'><i class='fa fa-trash'></i></a></td></tr>"
-  }
-  ultimoId = items[items.length-1].IDProduto;
-  $("#tabela01").append(tabela);
-  });
-};
+    function buscaDados() {
+      $.getJSON("http://localhost:41121/api/produtos/", function(data, status) {
+        var sHtml = "";
+        $.each(data, function(key, val) {
+   
+          sHtml += "<tr  class='registro' id='tr" + val.IDProduto + "'>\
+                        <th scope='col'>\
+                        <input type='radio' name='registro' id='radio" + val.IDProduto + "'>\
+                        </th>\
+                        <td>" + val.IDProduto + "</td>\
+                        <td>" + val.NomeProduto + "</td>\
+                        <td>" + val.IDFornecedor + "</td>\
+                        <td>" + val.IDCategoria + "</td>\
+                        <td>" + val.QuantidadePorUnidade + "</td>\
+                        <td>" + val.PrecoUnitario + "</td>\
+                        <td>" + val.UnidadesEmEstoque + "</td>\
+                        <td>" + val.UnidadesEmOrdem + "</td>\
+                        <td>" + val.NivelDeReposicao + "</td>\
+                        <td>" + val.Descontinuado + "</td>\
+                    </tr>";
+        });
 
-function excluiProduto(id){
-    $.ajax({
-      type: "DELETE",
-      url: "http://127.0.0.1:41121/api/produto/"+id,
-    }).then(res =>{
-      mostrarProdutos();
-      //$("#buscar").click();
-    })
-}
-function editarProduto(id){
-  $.getJSON("http://127.0.0.1:41121/api/produto/"+id, function(data, status) {
-    var itemAltera = [];
-    $.each(data, function(key, val) {
-      itemAltera.push(val);
+        document.getElementById("tabela").innerHTML = sHtml;
+        
+      });
+    };
+
+    $("#gravar").click(function() {
+      let sNome = $("#nome").val();
+
+      //enviado
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:41071/pessoa",
+        data: JSON.stringify ({nome: sNome}),
+        success: function(data) {
+          //alert("data: " + data);
+        },
+        contentType: "application/json",
+        dataType: "json"
+      }).then(res => {
+        $("#buscar").click();
+      });
     });
-    $("#idProdutoAltera").val(itemAltera[0]);
-    $("#nomeProdutoAltera").val(itemAltera[1]);
-    $("#alterarForm").modal("show");
-    $("#alterar").click(function(){
-      alterarProduto(id);
-    })
-  })
-};
 
-function alterarProduto(id){
-  $.ajax({
-    type: "PUT",
-    url: "http://127.0.0.1:41121/api/produto/"+id,
-    data: 'IDProduto=' +$("#idProdutoAltera").val()+ '&NomeProduto=' +$("#nomeProdutoAltera").val(),
-    success: function(data) {
-      mostrarProdutos();
-    },
-  }).then(res => {
-    $("#idProdutoAltera").val("");
-    $("#nomeProdutoAltera").val("");
-    $("#alterarForm").modal("hide");
+    $("#excluir").click(function() {
+      let iCodigo = $("#codigo").val();
+
+      if(iCodigo == "") {
+
+      } else {
+        //enviado
+      $.ajax({
+        type: "DELETE",
+        url: "http://localhost:41071/pessoa/"+ iCodigo,
+        success: function(data) {
+          alert("Excluido com Sucesso!");
+        },
+        contentType: "application/json",
+        dataType: "json"
+      }).then(res => {
+        $("#buscar").click();
+      });
+      }
+
+    });
+
+    $("#alterar").click(function() {
+      let iCodigo = $("#codigo").val();
+      let sNome = $("#nome").val();
+
+      if(iCodigo == "" || sNome == "") {
+
+      } else {
+        //enviado
+      $.ajax({
+        type: "PATCH",
+        url: "http://localhost:41071/pessoa/"+ iCodigo,
+        data: JSON.stringify ({nome: sNome}),
+        success: function(data) {
+          alert("Alterado com Sucesso!");
+        },
+        contentType: "application/json",
+        dataType: "json"
+      }).then(res => {
+        $("#buscar").click();
+      });
+      }      
+    });
+
+    
+  
   });
-}
-
-$("#cadastrar").click(function() {
-  $.ajax({
-    type: "POST",
-    url: "http://127.0.0.1:41121/api/produto",
-    data: 'IDProduto=' +$("#idProduto").val()+ '&NomeProduto=' +$("#nomeProduto").val(),
-    success: function(data) {
-      mostrarProdutos();
-    },
-  }).then(res => {
-    $("#idProduto").val("");
-    $("#nomeProduto").val("");
-    $("#cadastrarForm").modal("hide");
-  });
-});
-
-$("#adicionar").click(function() {
-  $("#idProduto").val(ultimoId+1);
-  $("#cadastrarForm").modal('show');
-});
