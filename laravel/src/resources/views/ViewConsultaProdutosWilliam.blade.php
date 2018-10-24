@@ -14,20 +14,13 @@
 @extends('ViewPadrao')
 
 @section('content')
-
-
-    <form>
-        <ul class="nav">
-            <li class="nav-item">
-                <button type="button" class="btn btn-success" id="#gravar">Adicionar</button>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><button type="button" class="btn btn-primary">Alterar</button></a>
-            </li>
-            <li class="nav-item">
-                <button type="button" class="btn btn-danger">Excluir</button>
-            </li>
-        </ul>
+        <div class="container col-12">
+            <ul class="nav">
+                <li class="nav-item">
+                    <button type="button" class="btn btn-success" class="adicionar">Adicionar</button>
+                </li>
+            </ul>
+        </div>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -41,13 +34,12 @@
                 <th scope="col">UnidadesEmOrdem</th>
                 <th scope="col">NivelDeReposicao</th>
                 <th scope="col">Descontinuado</th>
-                <th scope="col">Descontinuado</th>
+                <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody id="tabela">                       
             </tbody>
-        </table> 
-    </form>       
+        </table>  
                            
 
 @endsection

@@ -6,10 +6,7 @@ $(document).ready(function() {
         var sHtml = "";
         $.each(data, function(key, val) {
    
-          sHtml += "<tr  class='registro' id='tr" + val.IDProduto + "'>\
-                        <th scope='col'>\
-                        <input type='radio' name='registro' id='radio" + val.IDProduto + "'>\
-                        </th>\
+          sHtml += "<tr>\
                         <td>" + val.IDProduto + "</td>\
                         <td>" + val.NomeProduto + "</td>\
                         <td>" + val.IDFornecedor + "</td>\
@@ -20,6 +17,10 @@ $(document).ready(function() {
                         <td>" + val.UnidadesEmOrdem + "</td>\
                         <td>" + val.NivelDeReposicao + "</td>\
                         <td>" + val.Descontinuado + "</td>\
+                        <td>\
+                            <a onclick='alterar(" + val.IDProduto + ")' class='btn' id='alterar'><i class='far fa-edit'></i></a>\
+                            <a onclick='deletar(" + val.IDProduto + ")' class='btn' id='excluir'><i class='fas fa-trash'></i></a>\
+                        </td>\
                     </tr>";
         });
 
@@ -91,6 +92,9 @@ $(document).ready(function() {
       }      
     });
 
+    $(".adicionar").click(function(){
+      window.location.href = "AdicionaProdutosWilliam";
+    });
     
   
   });

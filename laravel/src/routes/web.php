@@ -26,8 +26,6 @@ Route::get('/', function () {
 Route::get('/produtos', function () {
     return view('produtos');
 });
-b
-
 
 Route::get('/todosFuncionario', function () {
     return view('Funcionario');
@@ -70,9 +68,8 @@ Route::get('/ConsultaProdutosWilliam', function () {
 });
 
 
-
-Route::get('/consultaprodutos', function () {
-    return view('ViewProduto');
+Route::get('/AdicionaProdutosWilliam', function () {
+    return view('AdicionaProdutosWilliam');
 });
 
 

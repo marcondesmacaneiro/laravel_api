@@ -24,20 +24,20 @@
                             <a class="dropdown-item" href="/cadastroCliente">Cadastrar Clientes</a>
                           </div>
                         </li>
-<<<<<<< HEAD
+
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produtos</a>
                           <div class="dropdown-menu">
                             <a class="dropdown-item" href="/ConsultaProdutosWilliam" id="buscar">Consultar Produtos</a>
-                            <a class="dropdown-item" href="">Cadastrar Produtos</a>
-=======
+                            <a class="dropdown-item" href="AdicionaProdutosWilliam">Cadastrar Produtos</a>
+
 
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Produto</a>
                           <div class="dropdown-menu">
                             <a class="dropdown-item" href="/consultaprodutos" id="buscar">Consultar Produto</a>
                             <a class="dropdown-item" href="">Cadastrar Clientes</a>
->>>>>>> f34aff40e9cc77bf7382620c5d6813a28c72f30b
+
                           </div>
                         </li>
                     </ul>

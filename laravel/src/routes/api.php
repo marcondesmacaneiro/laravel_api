@@ -141,11 +141,6 @@ Route::group(['prefix' => 'produto'], function () {
 
 });
 
-
-
-Route::group(['prefix' => 'clientes'], function () {
-
-
 /**
  * @author Ivan Vinicius Boneti
  * @package laravel_api
