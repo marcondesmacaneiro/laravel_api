@@ -1,5 +1,10 @@
 $(document).ready(function() {
-    buscaDados();
+    
+    var way = window.location.pathname;  
+    
+    if(way == "/ConsultaProdutosWilliam"){
+      buscaDados();
+    }    
 
     function buscaDados() {
       $.getJSON("http://localhost:41121/api/produtos/", function(data, status) {
@@ -18,56 +23,72 @@ $(document).ready(function() {
                         <td>" + val.NivelDeReposicao + "</td>\
                         <td>" + val.Descontinuado + "</td>\
                         <td>\
-                            <a onclick='alterar(" + val.IDProduto + ")' class='btn' id='alterar'><i class='far fa-edit'></i></a>\
-                            <a onclick='deletar(" + val.IDProduto + ")' class='btn' id='excluir'><i class='fas fa-trash'></i></a>\
+                            <button id=" + val.IDProduto + " class='btn alterar'><i class='far fa-edit'></i></button>\
+                            <button id=" + val.IDProduto + " class='btn excluir'><i class='fas fa-trash'></i></button>\
                         </td>\
                     </tr>";
         });
 
         document.getElementById("tabela").innerHTML = sHtml;
+
+        $(".excluir").click(function() {
+          let iIDProduto = this.id;    
+          if(iIDProduto == "") {
+            
+          } else {
+            //enviado
+          $.ajax({
+            type: "DELETE",
+            url: "http://localhost:41121/api/produtos/"+ iIDProduto,
+            success: function(data) {
+              alert("Excluido com Sucesso!");
+            },
+            contentType: "application/json",
+            dataType: "json"
+          }).then(res => {
+            buscaDados();
+          });
+          }
+        });
+
+        $(".alterar").click(function(){
+          let iIDProduto = this.id;
+          window.location.href = "AlteraProdutosWilliam";
+        });
+    
         
       });
     };
 
     $("#gravar").click(function() {
-      let sNome = $("#nome").val();
-
+      let iIDProduto             = $("#IDdoProduto").val(),
+          sNomeProduto           = $("#NomeDoProduto").val(),
+          iIDFornecedor          = $("#IDFornecedor").val(),
+          iIDCategoria           = $("#IDCategoria").val(),
+          sQuantidadePorUnidade  = $("#QuantidadePorUnidade").val(),
+          dPrecoUnitario         = $("#PrecoUnitario").val(),
+          iUnidadesEmEstoque     = $("#UnidadesEmEstoque").val(),
+          iNivelDeReposicao      = $("#NivelDeReposicao").val(),
+          sDescontinuado         = $("#Descontinuado").val();
+        
       //enviado
       $.ajax({
         type: "POST",
-        url: "http://localhost:41071/pessoa",
-        data: JSON.stringify ({nome: sNome}),
+        url: "http://localhost:41121/api/produtos",
+        data: JSON.stringify ({IDProduto : iIDProduto, NomeProduto : sNomeProduto, IDFornecedor : iIDFornecedor, IDCategoria : iIDCategoria, QuantidadePorUnidade : sQuantidadePorUnidade, PrecoUnitario : dPrecoUnitario, UnidadesEmEstoque : iUnidadesEmEstoque, NivelDeReposicao : iNivelDeReposicao, Descontinuado : sDescontinuado }),
         success: function(data) {
           //alert("data: " + data);
         },
         contentType: "application/json",
         dataType: "json"
       }).then(res => {
-        $("#buscar").click();
+        alert("O produto foi cadastrado com sucesso!");
+        window.location.href = "ConsultaProdutosWilliam";
       });
-    });
+    }); 
 
-    $("#excluir").click(function() {
-      let iCodigo = $("#codigo").val();
 
-      if(iCodigo == "") {
 
-      } else {
-        //enviado
-      $.ajax({
-        type: "DELETE",
-        url: "http://localhost:41071/pessoa/"+ iCodigo,
-        success: function(data) {
-          alert("Excluido com Sucesso!");
-        },
-        contentType: "application/json",
-        dataType: "json"
-      }).then(res => {
-        $("#buscar").click();
-      });
-      }
-
-    });
 
     $("#alterar").click(function() {
       let iCodigo = $("#codigo").val();
@@ -79,7 +100,7 @@ $(document).ready(function() {
         //enviado
       $.ajax({
         type: "PATCH",
-        url: "http://localhost:41071/pessoa/"+ iCodigo,
+        url: "http://localhost:41121/api/produtos"+ iCodigo,
         data: JSON.stringify ({nome: sNome}),
         success: function(data) {
           alert("Alterado com Sucesso!");
@@ -92,9 +113,15 @@ $(document).ready(function() {
       }      
     });
 
-    $(".adicionar").click(function(){
+    $("#adicionar").click(function(){
       window.location.href = "AdicionaProdutosWilliam";
+    });
+
+        
+
+    $("#cancelar").click(function(){
+      window.location.href = "ConsultaProdutosWilliam";
     });
     
   
-  });
+  } );

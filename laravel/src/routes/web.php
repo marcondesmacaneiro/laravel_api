@@ -65,6 +65,10 @@ Route::get('/AdicionaProdutosWilliam', function () {
     return view('AdicionaProdutosWilliam');
 });
 
+Route::get('/AlteraProdutosWilliam', function () {
+    return view('AlteraProdutosWilliam');
+});
+
 
 Route::get('/cadastroCliente', function () {
     return view('ViewManutencaoCliente');

@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produtos extends Model {
     protected $table = 'produtos';
     protected $fillable =array('IDProduto','NomeProduto','IDFornecedor','IDCategoria', 'QuantidadePorUnidade', 'PrecoUnitario',  'UnidadesEmEstoque', 'UnidadesEmOrdem', 'NivelDeReposicao', 'Descontinuado');
-     protected $primaryKey = 'IDProduto';
+    protected $primaryKey = 'IDProduto';
     public $timestamps = false;
 
     public function getProdutos(){

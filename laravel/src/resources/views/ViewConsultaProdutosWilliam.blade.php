@@ -14,13 +14,15 @@
 @extends('ViewPadrao')
 
 @section('content')
+        <br>
         <div class="container col-12">
             <ul class="nav">
                 <li class="nav-item">
-                    <button type="button" class="btn btn-success" class="adicionar">Adicionar</button>
+                    <button type="button" class="btn btn-success" id="adicionar">Adicionar</button>
                 </li>
             </ul>
         </div>
+        <br>
         <table class="table">
             <thead class="thead-dark">
                 <tr>

@@ -19,7 +19,7 @@
     <form>
         <div class="form-group">
             <label for="IDdoProduto">ID do Produto</label>
-            <input type="number" class="form-control" id="IDdoProduto" placeholder="Entre com o ID do Produto" required>
+            <input type="number" class="form-control" id="IDdoProduto" placeholder="Entre com o ID do Produto" disable>
         </div>
         <div class="form-group">
             <label for="NomeDoProduto">Nome Do Produto</label>
