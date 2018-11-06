@@ -60,7 +60,7 @@
                 <option value="T">T</option>
             </select>
         </div>   
-        <button type="submit" class="btn btn-primary" id="gravar">Cadastrar</button>
+        <button type="button" class="btn btn-primary" id="gravar">Cadastrar</button>
         <button type="button" class="btn btn-primary" id="cancelar">Cancelar</button>
         <button type="reset" class="btn btn-primary" id="cancelar">Limpar</button>
     </form>

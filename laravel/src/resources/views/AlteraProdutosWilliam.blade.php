@@ -16,10 +16,10 @@
 @section('content')
 
 <div class="container">
-    <form>
+    <form>        
         <div class="form-group">
             <label for="IDdoProduto">ID do Produto</label>
-            <input type="number" class="form-control" id="IDdoProduto" placeholder="Entre com o ID do Produto" disable>
+            <input type="number" class="form-control" id="IDdoProduto" value placeholder="Entre com o ID do Produto" disable>
         </div>
         <div class="form-group">
             <label for="NomeDoProduto">Nome Do Produto</label>
@@ -60,7 +60,7 @@
                 <option value="T">T</option>
             </select>
         </div>   
-        <button type="submit" class="btn btn-primary" id="gravar">Cadastrar</button>
+        <button type="button" class="btn btn-primary" id="alterar">Cadastrar</button>
         <button type="button" class="btn btn-primary" id="cancelar">Cancelar</button>
         <button type="reset" class="btn btn-primary" id="cancelar">Limpar</button>
     </form>
@@ -69,5 +69,5 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript" src="js/Produtos.js"></script>
+<script type="text/javascript" src="/js/Produtos.js"></script>
 @endsection

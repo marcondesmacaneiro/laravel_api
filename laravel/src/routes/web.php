@@ -65,8 +65,8 @@ Route::get('/AdicionaProdutosWilliam', function () {
     return view('AdicionaProdutosWilliam');
 });
 
-Route::get('/AlteraProdutosWilliam', function () {
-    return view('AlteraProdutosWilliam');
+Route::get('/AlteraProdutosWilliam/{id}', function ($id) {
+    return view('AlteraProdutosWilliam')->with('id',$id);
 });
 
 
