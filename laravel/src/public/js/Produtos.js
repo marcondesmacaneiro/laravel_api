@@ -4,8 +4,6 @@ $(document).ready(function() {
     
     if(way == "/ConsultaProdutosWilliam"){
       buscaDados();
-    }else{
-      carregaAlterar();
     }
 
     function buscaDados() {
@@ -58,20 +56,56 @@ $(document).ready(function() {
           }
         });        
 
-        $(".alterar").click(function(){
-          let iIDProduto = this.id;
-          window.location.href = "AlteraProdutosWilliam/"+iIDProduto;
-        });   
+        $(".alterar").click(function(){          
+          $("#tabela").load("AlteraProdutosWilliam");
+          carregaAlterar();
+        }); 
         
       });
     };
 
     function carregaAlterar(){
-      let iIDProduto = 1 ;
       $.getJSON("http://localhost:41121/api/produto/"+ 1, function(data, status) {
-      var sHtml = "";
-      document.getElementById("IDdoProduto").innerHTML = data;
-    });
+        $("#IDdoProduto").val(data.IDProduto),
+        $("#NomeDoProduto").val(data.NomeProduto),
+        $("#IDFornecedor").val(data.IDFornecedor),
+        $("#IDCategoria").val(data.IDCategoria),
+        $("#QuantidadePorUnidade").val(data.QuantidadePorUnidade),
+        $("#PrecoUnitario").val(data.PrecoUnitario),
+        $("#UnidadesEmEstoque").val(data.UnidadesEmEstoque),
+        $("#NivelDeReposicao").val(data.NivelDeReposicao),
+        $("#Descontinuado").val(data.Descontinuado4);
+
+        $("#alterar").click(function() {
+          let iIDProduto             = $("#IDdoProduto").val(),
+              sNomeProduto           = $("#NomeDoProduto").val(),
+              iIDFornecedor          = $("#IDFornecedor").val(),
+              iIDCategoria           = $("#IDCategoria").val(),
+              sQuantidadePorUnidade  = $("#QuantidadePorUnidade").val(),
+              dPrecoUnitario         = $("#PrecoUnitario").val(),
+              iUnidadesEmEstoque     = $("#UnidadesEmEstoque").val(),
+              iNivelDeReposicao      = $("#NivelDeReposicao").val(),
+              sDescontinuado         = $("#Descontinuado").val();
+    
+          if(iIDProduto == "" || sNomeProduto== "") {
+    
+          } else {
+            //enviado
+          $.ajax({
+            type: "PUT",
+            url: "http://localhost:41121/api/produtos/"+ iIDProduto,
+            data: JSON.stringify ({IDProduto : iIDProduto, NomeProduto : sNomeProduto, IDFornecedor : iIDFornecedor, IDCategoria : iIDCategoria, QuantidadePorUnidade : sQuantidadePorUnidade, PrecoUnitario : dPrecoUnitario, UnidadesEmEstoque : iUnidadesEmEstoque, NivelDeReposicao : iNivelDeReposicao, Descontinuado : sDescontinuado }),
+            success: function(data) {
+              alert("Alterado com Sucesso!");
+            },
+            contentType: "application/json",
+            dataType: "json"
+          }).then(res => {
+            buscaDados();
+          });
+          }      
+        });
+      });
     };
 
     $("#gravar").click(function() {
@@ -100,29 +134,6 @@ $(document).ready(function() {
           window.location.href = "ConsultaProdutosWilliam";
       });
     }); 
-
-    $("#alterar").click(function() {
-      let iCodigo = $("#codigo").val();
-      let sNome = $("#nome").val();
-
-      if(iCodigo == "" || sNome == "") {
-
-      } else {
-        //enviado
-      $.ajax({
-        type: "PATCH",
-        url: "http://localhost:41121/api/produtos"+ iCodigo,
-        data: JSON.stringify ({nome: sNome}),
-        success: function(data) {
-          alert("Alterado com Sucesso!");
-        },
-        contentType: "application/json",
-        dataType: "json"
-      }).then(res => {
-        $("#buscar").click();
-      });
-      }      
-    });
 
     $("#adicionar").click(function(){
       window.location.href = "AdicionaProdutosWilliam";
