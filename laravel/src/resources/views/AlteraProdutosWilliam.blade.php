@@ -1,15 +1,4 @@
-<?php
 
-/**
- * Modelo dos Clientes
- *
- * @package Model
- * @author  William Goebel
- * @since   02/10/2018
- */
-
-
-?>
 
 <div class="container">
     <form>        

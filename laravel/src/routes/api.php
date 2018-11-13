@@ -102,7 +102,7 @@ Route::group(["prefix" => "produtos"], function () {
     Route::post('', 'ProdutosController@addProduto');
 
     //Atualiza um produto
-    Route::put('{id}', 'ProdutosController@atualizaProduto');
+    Route::put('/{id}', 'ProdutosController@atualizaProduto');
 
     //Deleta um produto
     Route::delete('{id}', 'ProdutosController@deletaProduto');
